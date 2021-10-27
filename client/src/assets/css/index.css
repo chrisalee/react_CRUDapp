@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ff-primary: 'Kalam', cursive;
+  --main-bg: #f9f9f9;
+  --second-bg: #fafafa;
+  --txt-color: #455560;
+  --txt-white: #ffffff;
+  --main-color: #3a0086;
+  --second-color: #355969;
+
+  --main-bg-dark: #2d2d2d;
+  --second-bg-dark: #202020;
+  --txt-color-dark: #bbbbbb;
+  --box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25),
+                0.125em 0.125em 0.25em rgba(0, 0, 0, 0.15),
+                0.1em 0.1em 0.2em rgba(0, 0, 0, 0.1),
+                0.01em 0.01em 0.02em rgba(0, 0, 0, 0.01);
+
+  --sidebar-width: 300px;
+  --border-radius: 15px;
+  --topnav-height: 110px;
+  --transition-cubic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* custom scrollbar *************************************************************************/
+/* width */
+::-webkit-scrollbar {
+  width: 1.125em;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: var(--box-shadow);
+  border-radius: 1em;
+}
+/* Track color */
+::-webkit-scrollbar-track-piece {
+  background: var(--main-bg);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--second-color);
+  border-radius: 1em;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--second-bg);
+}
+
+/* General styles **********************************************************************************************/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--txt-color);
+  margin: 0;
+  font-family: var(--ff-primary);
+  line-height: 1.6;
+}
