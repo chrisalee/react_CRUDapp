@@ -1,2 +1,45 @@
 How To Build a CRUD App with React Hooks and the Context API
 
+Step 1 — Setting Up the Project
+    npx create-react-app
+    npm install react-router-dom
+    // in src folder
+    npx tailwindcss-cli@0.1.2 build --output tailwind.css
+    
+Step 2 — Building the AppReducer and GlobalContext
+    context folder in src
+    AppReducer.js - This reducer will define CRUD actions like ADD_EMPLOYEE, EDIT_EMPLOYEE, and REMOVE_EMPLOYEE.
+        ADD_EMPLOYEES will take a payload value containing new employees and return the updated employee state.
+        EDIT_EMPLOYEE will take a payload value and compare the id with the employees - if it finds a match, it will use the new payload values and return the updated employee state.
+        REMOVE_EMPLOYEE will take a payload value and compare the id with the employees - if it finds a match, it will remove that employee and return the updated employee state.
+
+    GlobalState.js - This code adds some functionality to dispatch an action that goes into the reducer file to switch upon the case that corresponds to each action.
+
+    create EmployeeList component
+        This code will display the employee.name, employee.designation, and employee.location for all employees.
+        Next, open App.js in your code editor. And add EmployeeList and GlobalProvider.
+
+Step 3 — Building the AddEmployee and EditEmployee Components
+    AddEmployee.js - In this code setName, setLocation, and setDesignation will take the current values that users enter into the form fields. These values will be wrapped in a new constant, newEmployee, with a unique id (adding one to the total length). Then, the route will be changed to the main screen which will display the updated list of employees - including the newly added employee.
+        The AddEmployee component imported GlobalState and useContext, one of the built-in React Hooks, giving functional components easy access to our context.
+        The employees object, removeEmployee, and editEmployees were imported from the GlobalState.js file.
+
+    EditEmployee.js - which will include functionality for editing the existing objects from the state
+        This code uses the useEffect hook, which is invoked when the component is mounted. Inside this hook, the current route parameter will be compared with the same parameter in the employees object from the state.
+        onChange event listeners are triggered when the user makes a change to the form fields. The userKey and the newValue are passed to setSelectedUser. selectedUser is spread and userKey is set as the key and newValue is set as the value.
+
+Step 4 — Setting Up Routes
+    Revisit EmployeeList.js and modify it to use Link and removeEmployee
+    This code will add two icons next to the employee information. The pencil and paper icon represents “Edit” and links to the EditEmployee component. The trashbin icon represents “Remove” and clicking on it will fire removeEmployee.
+
+    Heading.js
+
+    Home.js
+
+    App.js - import Route and Switch from react-router-dom. Assign the Home, AddeEmployee and EditEmployee components to each route
+        Click on the Add Employee link. You will be routed to the AddEmployee component
+        After submitting information for a new employee, you will be routed back to the Home component and it will now list the new employee.
+        Click on the Edit Employee link. You will be routed to the EditEmployee component
+
+
+
